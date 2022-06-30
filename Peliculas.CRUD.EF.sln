@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.CRUD.EF", "MVC.CRUD.EF.csproj", "{B1918435-C3A2-4BC3-B1F2-734AF240BCCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peliculas.CRUD.EF", "Peliculas.CRUD.EF.csproj", "{B1918435-C3A2-4BC3-B1F2-734AF240BCCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
