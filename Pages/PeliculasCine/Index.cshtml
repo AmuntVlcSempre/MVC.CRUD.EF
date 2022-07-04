@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{borrado?}"
 @model Peliculas.CRUD.EF.Pages.Peliculas.IndexModel
 
 @{
@@ -9,7 +9,21 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+@if(Model.EsBorrado)
+            {
+<div class="alert alert-success alert-dismissible
+            fade show w-100" role="alert">
 
+    <strong>La película se borró correctamente</strong>
+
+    <!--Close Icon-->
+    <button type="button" class="btn close"
+            data-dismiss="alert" aria-label="Close">
+
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+            }
 <form>
     <p>
         <select asp-for="MovieGenre" asp-items="Model.Genres">
@@ -64,7 +78,7 @@
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    <a asp-page="Borrar" asp-route-id="@item.ID">Delete</a>
                 </td>
             </tr>
         }

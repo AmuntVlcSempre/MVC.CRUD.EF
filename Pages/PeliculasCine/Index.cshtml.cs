@@ -26,8 +26,9 @@ namespace Peliculas.CRUD.EF.Pages.Peliculas
         public SelectList Genres { get; set; }
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
+        public bool EsBorrado { get; set; } = false;
         #region snippet_1stSearch
-        public void OnGet()
+        public void OnGet([FromRoute] bool borrado)
         {
             var movies = from m in _context.Films
                          select m;
@@ -37,10 +38,15 @@ namespace Peliculas.CRUD.EF.Pages.Peliculas
                 movies = movies.Where(s => s.Title.Contains(SearchString));
             }
             #endregion
-
+            EsBorrado = borrado;
             Movie = movies.ToList();
         }
         #endregion
+        ////////public IActionResult OnGetBorrado(bool borrado)
+        ////////{
+        ////////    EsBorrado = borrado;
+        ////////    return RedirectToAction("Get");
+        ////////}
     }
 }
 
