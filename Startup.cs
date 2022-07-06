@@ -1,15 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Peliculas.CRUD.EF.Data;
+using Peliculas.CRUD.EF.Pages.Peliculas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVC.CRUD.EF
+namespace Peliculas.CRUD.EF
 {
     public class Startup
     {
@@ -24,6 +27,8 @@ namespace MVC.CRUD.EF
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddDbContext<AplDbContext>
+                (option => option.UseSqlServer(Configuration.GetConnectionString("cadenaConexion")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
